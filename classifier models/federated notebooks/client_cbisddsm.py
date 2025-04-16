@@ -76,6 +76,7 @@ val_transform = transforms.Compose([
 class CBISDDDSMClient(fl.client.NumPyClient):
     def __init__(self, client_id: int):
         # 1️⃣ Build model
+        self.client_id = client_id
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.model = create_model().to(self.device)
         self.criterion = nn.CrossEntropyLoss()
