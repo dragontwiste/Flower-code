@@ -13,8 +13,8 @@ import warnings
 warnings.filterwarnings("ignore")
 
 # ✅ Paths
-DATA_ROOT = r"E:\PFE\Flower code\data original\DATA\Mass"
-CLIENT_ROOT = r"E:\PFE\Flower code\data created"
+DATA_ROOT = r"E:\PFE\Flower-code\data original\DATA\Mass"
+CLIENT_ROOT = r"E:\PFE\Flower-code\data created"
 TRAIN_PATH = os.path.join(DATA_ROOT, "Train")
 TEST_PATH = os.path.join(DATA_ROOT, "Test")
 NUM_CLIENTS = 3  # Set how many clients you want
@@ -137,7 +137,7 @@ class CBISClient(fl.client.NumPyClient):
     def __init__(self, client_id):
         self.client_id = client_id
         self.yaml_path, self.client_data_path = prepare_data(client_id)
-        self.model = YOLO(r"E:\PFE\Flower code\yolo models\yolo11m_mass.pt", task="detect")
+        self.model = YOLO(r"E:\PFE\Flower-code\yolo models\yolo11m_mass.pt", task="detect")
         self.model.fuse = False
 
     def get_parameters(self, config):

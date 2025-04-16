@@ -17,10 +17,10 @@ import warnings
 from collections import OrderedDict
 warnings.filterwarnings("ignore")
 # ✅ Paths
-XLS_PATH = r"E:\PFE\Flower code\data original\INbreast Release 1.0\INbreast.xls"
-ALLDICOMs = r"E:\PFE\Flower code\data original\INbreast Release 1.0\AllDICOMs"
-ALLXML = r"E:\PFE\Flower code\data original\INbreast Release 1.0\AllXML"
-CLIENT_ROOT = r"E:\PFE\Flower code\data created"
+XLS_PATH = r"E:\PFE\Flower-code\data original\INbreast Release 1.0\INbreast.xls"
+ALLDICOMs = r"E:\PFE\Flower-code\data original\INbreast Release 1.0\AllDICOMs"
+ALLXML = r"E:\PFE\Flower-code\data original\INbreast Release 1.0\AllXML"
+CLIENT_ROOT = r"E:\PFE\Flower-code\data created"
 NUM_CLIENTS = 5
 
 def map_label(bi_rads):
@@ -127,7 +127,7 @@ class YOLOClient(fl.client.NumPyClient):
         self.client_id = client_id
         self.client_data_path = os.path.join(CLIENT_ROOT, f"client_inbreast{client_id}")
         self.yaml_path = os.path.join(self.client_data_path, "inbreast.yaml")
-        self.model = YOLO(r"E:\PFE\Flower code\yolo models\yolo11m_mass.pt", task="detect")
+        self.model = YOLO(r"E:\PFE\Flower-code\yolo models\yolo11m_mass.pt", task="detect")
         self.model.fuse = False 
 
         self.prepare_data()

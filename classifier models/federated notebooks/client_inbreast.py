@@ -18,8 +18,8 @@ from flwr.client import start_client as flwr_start_client
 warnings.filterwarnings("ignore")
 
 # ✅ Config
-XLS_PATH = r"E:\PFE\Flower code\data original\INbreast Release 1.0\INbreast.xls"
-ALLDICOMs = r"E:\PFE\Flower code\data original\INbreast Release 1.0\AllDICOMs"
+XLS_PATH = r"E:\PFE\Flower-code\data original\INbreast Release 1.0\INbreast.xls"
+ALLDICOMs = r"E:\PFE\Flower-code\data original\INbreast Release 1.0\AllDICOMs"
 NUM_CLIENTS = 2
 
 # ✅ Label map

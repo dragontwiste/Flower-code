@@ -12,7 +12,7 @@ from flwr.server.strategy import DPFedAvgFixed, FedAvg, DPFedAvgAdaptive
 
 
 # ✅ Global model
-model = YOLO(r"E:\PFE\Flower code\yolo models\yolo11m_mass.pt", task="detect")
+model = YOLO(r"E:\PFE\Flower-code\yolo models\yolo11m_mass.pt", task="detect")
 model.model.nc = 2
 model.model.names = {0: "no_mass", 1: "mass"}
 model.fuse()
@@ -20,7 +20,7 @@ model.model = model.model.to("cuda")
 
 
 # ✅ Path to validation YAML (use any one full dataset)
-VAL_YAML = r"E:\PFE\Flower code\data created\client_cbis_ddsm0\cbis_ddsm.yaml"
+VAL_YAML = r"E:\PFE\Flower-code\data created\client_cbis_ddsm0\cbis_ddsm.yaml"
 
 
 # ✅ Helper: Set weights
@@ -39,7 +39,7 @@ def get_weights():
 
 # ✅ Helper: Save model
 def save_model(round_num):
-    model_path = fr"E:\PFE\Flower code\yolo models\global_model_round_{round_num}.pt"
+    model_path = fr"E:\PFE\Flower-code\yolo models\global_model_round_{round_num}.pt"
     model.save(model_path)
     print(f"💾 Saved global model at: {model_path}")
 
