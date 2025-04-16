@@ -9,8 +9,7 @@
 /yolo models/federated notebooks/runs
 /yolo models/federated notebooks/runs
 
-/yolo models/yolo11m_mass.pt
-/yolo models/yolo11m.pt
+
 
 
 
