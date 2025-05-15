@@ -13,8 +13,8 @@ import warnings
 warnings.filterwarnings("ignore")
 
 # ✅ Paths
-DATA_ROOT = r"E:\PFE\Flower-code\data original\DATA\Mass"
-CLIENT_ROOT = r"E:\PFE\Flower-code\data created"
+DATA_ROOT = r"/home_nfs/benyemnam/Flower-code/data original/DATA/Mass"
+CLIENT_ROOT = r"/home_nfs/benyemnam/Flower-code/data created"
 TRAIN_PATH = os.path.join(DATA_ROOT, "Train")
 TEST_PATH = os.path.join(DATA_ROOT, "Test")
 NUM_CLIENTS = 3  # Set how many clients you want
@@ -61,7 +61,7 @@ def process_and_save(df, img_dir, lbl_dir):
             continue
         yolo_boxes = [f"{label} {(x1+x2)/2/w:.6f} {(y1+y2)/2/h:.6f} {(x2-x1)/w:.6f} {(y2-y1)/h:.6f}" for x1, y1, x2, y2 in boxes]
         with open(lbl_path, "w") as f:
-            f.write("\n".join(yolo_boxes))
+            f.write("/n".join(yolo_boxes))
 
 def prepare_data(client_id):
     client_path = os.path.join(CLIENT_ROOT, f"client_cbis_ddsm{client_id}")
@@ -137,7 +137,7 @@ class CBISClient(fl.client.NumPyClient):
     def __init__(self, client_id):
         self.client_id = client_id
         self.yaml_path, self.client_data_path = prepare_data(client_id)
-        self.model = YOLO(r"E:\PFE\Flower-code\yolo models\yolo11m_mass.pt", task="detect")
+        self.model = YOLO(r"/home_nfs/benyemnam/Flower-code/yolo models/yolo11m_mass.pt", task="detect")
         self.model.fuse = False
 
     def get_parameters(self, config):

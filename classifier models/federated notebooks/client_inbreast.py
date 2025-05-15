@@ -15,11 +15,11 @@ from sklearn.metrics import accuracy_score, recall_score
 from collections import OrderedDict
 from flwr.client import start_client as flwr_start_client
 
-warnings.filterwarnings("ignore")
+warnings.filterwarnings("ignore") 
 
 # ✅ Config
-XLS_PATH = r"E:\PFE\Flower-code\data original\INbreast Release 1.0\INbreast.xls"
-ALLDICOMs = r"E:\PFE\Flower-code\data original\INbreast Release 1.0\AllDICOMs"
+XLS_PATH = r"/home_nfs/benyemnam/Flower-code/data original/INbreast Release 1.0/INbreast.xls"
+ALLDICOMs = r"/home_nfs/benyemnam/Flower-code/data original/INbreast Release 1.0/AllDICOMs"
 NUM_CLIENTS = 2
 
 # ✅ Label map

@@ -46,7 +46,7 @@ This repository contains a Flower-based federated learning setup for training YO
    ```bash
    python -m venv venv
    source venv/bin/activate   # Linux/macOS
-   venv\Scripts\activate    # Windows
+   venv/Scripts/activate    # Windows
    ```
 
 3. **Install dependencies**
@@ -73,7 +73,7 @@ This repository contains a Flower-based federated learning setup for training YO
 Many scripts use hard‑coded paths rooted at:
 
 ```
-E:\PFE\Flower-code
+/home_nfs/benyemnam/Flower-code
 ```
 
 Before running, **replace** all occurrences of this base path with your local folder path. For example, if you cloned your project to:
@@ -85,7 +85,7 @@ Before running, **replace** all occurrences of this base path with your local fo
 then change:
 
 ```diff
-- XLS_PATH = r"E:\PFE\Flower-code"
+- XLS_PATH = r"/home_nfs/benyemnam/Flower-code"
 + XLS_PATH = r"/home/alice/projects/Flower-code"
 ```
 

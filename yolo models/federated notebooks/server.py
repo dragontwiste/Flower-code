@@ -12,7 +12,7 @@ from flwr.server.strategy import DPFedAvgFixed, FedAvg, DPFedAvgAdaptive
 
 
 # ✅ Global model
-model = YOLO(r"E:\PFE\Flower-code\yolo models\yolo11m_mass.pt", task="detect")
+model = YOLO(r"/home_nfs/benyemnam/Flower-code/yolo models/yolo11m_mass.pt", task="detect")
 model.model.nc = 2
 model.model.names = {0: "no_mass", 1: "mass"}
 model.fuse()
@@ -20,7 +20,7 @@ model.model = model.model.to("cuda")
 
 
 # ✅ Path to validation YAML (use any one full dataset)
-VAL_YAML = r"E:\PFE\Flower-code\data created\client_cbis_ddsm0\cbis_ddsm.yaml"
+VAL_YAML = r"/home_nfs/benyemnam/Flower-code/data created/client_inbreast0/inbreast.yaml"
 
 
 # ✅ Helper: Set weights
@@ -39,7 +39,7 @@ def get_weights():
 
 # ✅ Helper: Save model
 def save_model(round_num):
-    model_path = fr"E:\PFE\Flower-code\yolo models\global_model_round_{round_num}.pt"
+    model_path = fr"/home_nfs/benyemnam/Flower-code/yolo models/global_model_round_{round_num}.pt"
     model.save(model_path)
     print(f"💾 Saved global model at: {model_path}")
 
@@ -74,17 +74,17 @@ class YOLOStrategy(FedAvg):
             metrics_val = model.val(data=VAL_YAML, split="val")
             metrics_train = model.val(data=VAL_YAML, split="train")
 
-            print(f"\n🌍 [Global model after round {rnd}]")
+            print(f"/n🌍 [Global model after round {rnd}]")
             print(f"Train:  mAP50={metrics_train.box.map50:.4f}, Recall={metrics_train.box.mr:.4f}")
-            print(f"Val:    mAP50={metrics_val.box.map50:.4f}, Recall={metrics_val.box.mr:.4f}\n")
+            print(f"Val:    mAP50={metrics_val.box.map50:.4f}, Recall={metrics_val.box.mr:.4f}/n")
 
         return aggregated_weights, metrics or {}
     
 
 base_strategy = YOLOStrategy(
 fraction_fit=1.0,
-min_fit_clients=11,
-min_available_clients=11,
+min_fit_clients=2,
+min_available_clients=2,
 )
 strategy = DPFedAvgFixed(strategy=base_strategy,
                          noise_multiplier=0.5,

@@ -18,8 +18,8 @@ from collections import OrderedDict
 warnings.filterwarnings("ignore")
 
 # ─── Config ────────────────────────────────────────────────────────────────────
-TRAIN_PATH = r"E:\PFE\Flower-code\data original\DATA\Mass\Train"
-TEST_PATH  = r"E:\PFE\Flower-code\data original\DATA\Mass\Test"
+TRAIN_PATH = r"/home_nfs/benyemnam/Flower-code/data original/DATA/Mass/Train"
+TEST_PATH  = r"/home_nfs/benyemnam/Flower-code/data original/DATA/Mass/Test"
 NUM_CLIENTS = 2  #  how many CBIS‑DDSM clients you want
 
 # ─── Data collection ───────────────────────────────────────────────────────────
